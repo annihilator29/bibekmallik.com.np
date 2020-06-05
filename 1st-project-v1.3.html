@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HTML5 Project</title>
+
+<link href= "CSS/1st-CSS-v1.3.css" rel="stylesheet" >
+<script src="JS/1st-JS-v1.3.js"></script>
+</head>
+<body>
+<header>
+
+	
+  <h1 id="name">Bibek Mallik</h1>
+	<script>
+		var name=prompt("Please type your name").toLowerCase();
+		if (name!="null"&&name!="")
+		changeName(name);
+	</script>
+	<nav> 
+	 <button onclick="clicked()">Show Date</button>
+		<p id="date"> </p>
+  <ul>
+      <li> <a href="">Links </a>
+            <ul>  
+                  <li><a  href="">One </a> </li>
+              <li><a  href="">Two</a></li>
+                  <li><a  href="">Three</a> </li>
+                  <li><a  href="">Four</a></li>
+			</ul>
+		  </li>
+</ul>
+		
+</nav> 	
+	
+</header>
+		
+
+	
+	
+<section id="heading1">
+  <h2> Favourite Foods </h2>
+	
+</section>
+<section id="heading2">
+  <h2> Achievements </h2>
+</section>
+<section id="heading3">
+  <h2>More about me</h2>
+</section>
+<section class="personal info">
+  <ol>
+    <li>Guava</li>
+    <li>Pineapple</li>
+    <li>grapes</li>
+    <li>bananas</li>
+  </ol>
+</section>
+<section class="personal">
+  <label>Progress in this course(100%)</label>
+  <progress value="100" max="100">100%</progress>
+  <br>
+  <label>Progress in the specialization capstone (20%)</label>
+  <progress value="20" max="100">20%</progress>
+  <br>
+  <label>Progress in life goals(25%)</label>
+  <progress value="25" max="100">25%</progress>
+  <br>
+</section>
+<section class="personal">
+  <details open>
+    <summary>My Childhood</summary>
+    <p id="details1">I grew up in janakpur, a small city in a small and beautiful country, Nepal.</p>
+  </details>
+</section>
+<br>
+<footer>
+  <p> <img src="http://www.intro-webdesign.com/images/newlogo.png" width="250" alt="intro to web design logo"> This page was created by Bibek Mallik &amp; Collen van Lent. 
+    To learn more about web design, visit <a href="http://www.intro-webdesign.com."> Intro to Web Design.</a> </p>
+	
+	<p id="js"></p>	
+	
+</footer>
+</body>
+</html>
