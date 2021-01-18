@@ -8,6 +8,7 @@ function changeName(name)
 {
 	x=document.getElementById('name');
 	
+	
 			x.innerHTML= "Hello "+name;
 		
 	
