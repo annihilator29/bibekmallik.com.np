@@ -76,7 +76,8 @@ contactForm.addEventListener('submit', async (e) => {
 
         if (response.ok) {
             // Display a success message to the user
-            alert('Your message has been sent successfully!');
+            alert('Your form has been sent successfully!');
+            contactForm.reset();
         } else {
             // Display an error message if form submission fails
             alert('Oops! Something went wrong. Please try again later.');
