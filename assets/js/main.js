@@ -45,12 +45,45 @@ window.addEventListener('scroll', scrollActive)
 const sr = ScrollReveal({
     origin: 'top',
     distance: '60px',
-    duration: 2000,
-    delay: 200,
+    duration: 1000,
+    delay: 100,
 //     reset: true
 });
 
 sr.reveal('.home__data, .about__img, .skills__subtitle, .skills__text',{}); 
 sr.reveal('.home__img, .about__subtitle, .about__text, .skills__img',{delay: 400}); 
 sr.reveal('.home__social-icon',{ interval: 200}); 
-sr.reveal('.skills__data, .work__img, .contact__input',{interval: 200}); 
+sr.reveal('.skills__data, .work__img, .contact__input',{interval: 200});
+
+/*==================== FORM SUBMISSION ====================*/
+const contactForm = document.querySelector('.contact__form');
+
+contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault(); // Prevent the default form submission
+
+    // Fetch the Formspree endpoint URL from the form action attribute
+    const formAction = contactForm.getAttribute('action');
+
+    try {
+        // Send the form data to Formspree using Fetch API
+        const response = await fetch(formAction, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(Object.fromEntries(new FormData(contactForm)))
+        });
+
+        if (response.ok) {
+            // Display a success message to the user
+            alert('Your message has been sent successfully!');
+        } else {
+            // Display an error message if form submission fails
+            alert('Oops! Something went wrong. Please try again later.');
+        }
+    } catch (error) {
+        console.error('Error submitting form:', error);
+        // Display an error message if there's an error during form submission
+        alert('Oops! Something went wrong. Please try again later.');
+    }
+});
