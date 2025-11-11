@@ -411,12 +411,23 @@
         
         /* Ensure content is always below navigation on all screen sizes */
         .hero-section {
-            padding-top: 160px;
+            padding-top: 100px;
         }
         
         @media (max-width: 768px) {
             .hero-section {
-                padding-top: 160px;
+                padding-top: 120px;
+            }
+        }
+        
+        /* Specific fix for mobile navigation overlap */
+        @media (max-width: 768px) {
+            nav {
+                padding-top: 0.5rem;
+            }
+            
+            .hero-section {
+                padding-top: 150px;
             }
         }
     </style>
