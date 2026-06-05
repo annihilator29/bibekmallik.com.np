@@ -222,13 +222,21 @@
     --shadow-color: 22, 163, 74;
 }
 
-/* Base Body Styles */
+/* Base HTML + Body Styles — fix mobile viewport width gap */
+html {
+    overflow-x: hidden;
+    width: 100%;
+}
+
 body {
     background-color: var(--surface-dim);
     color: var(--on-surface);
     font-family: 'IBM Plex Sans', sans-serif;
     transition: background-color 0.3s ease, color 0.3s ease;
     overflow-x: hidden;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
 }
 
 /* Custom Typography bindings */
@@ -387,19 +395,38 @@ h1, h2, h3, h4, h5, h6 {
     border: 1px solid var(--border-utility);
 }
 
-/* Form Styles */
+/* Form Styles — !important overrides Tailwind forms plugin white-background reset */
 .form-input {
-    background-color: var(--surface-container-low);
-    border: 1px solid var(--border-utility);
-    color: var(--text-primary);
+    background-color: var(--surface-container-low) !important;
+    border: 1px solid var(--border-utility) !important;
+    color: var(--text-primary) !important;
     transition: all 0.25s ease;
     font-family: 'IBM Plex Sans', sans-serif;
+    caret-color: var(--primary-container);
+}
+
+.form-input::placeholder {
+    color: var(--text-muted);
+    opacity: 0.55;
+}
+
+/* Prevent browser autofill from forcing white bg / black text in dark mode */
+.form-input:-webkit-autofill,
+.form-input:-webkit-autofill:hover,
+.form-input:-webkit-autofill:focus,
+.form-input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px var(--surface-container-low) inset !important;
+    -webkit-text-fill-color: var(--text-primary) !important;
+    caret-color: var(--primary-container) !important;
+    transition: background-color 5000s ease-in-out 0s;
 }
 
 .form-input:focus {
-    border-color: var(--primary-container);
+    border-color: var(--primary-container) !important;
     box-shadow: 0 0 10px 0 rgba(var(--shadow-color), 0.2);
-    background-color: var(--surface-container-high);
+    background-color: var(--surface-container-high) !important;
+    color: var(--text-primary) !important;
+    outline: none;
 }
 
 /* Theme Button Toggles */
