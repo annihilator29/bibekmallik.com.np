@@ -1,26 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="dark scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Meta Tags -->
-    <title>Bibek Mallik - Supervising Electrical Engineer | Portfolio</title>
-    <meta name="description" content="Bibek Mallik - Supervising Electrical Engineer leading 70-member teams at K&A Engineering Consulting. Expert in Distributed Energy Resources (DER), grid modernization, and power distribution design.">
-    <meta name="keywords" content="Electrical Engineer, DER, Distributed Energy Resources, Power Distribution, Grid Modernization, K&A Engineering, Supervising Engineer, Team Leadership">
+    <title>Bibek Mallik - Electrical Engineer | Portfolio</title>
+    <meta name="description" content="Bibek Mallik - Electrical Engineer. Expert in Distributed Energy Resources (DER), grid reliability, utility mapping, and power distribution design.">
+    <meta name="keywords" content="Electrical Engineer, NEA, Nepal Electricity Authority, K&A Engineering, Grid Modernization, Power Distribution, CYME DIST, ASPEN Oneliner">
     <meta name="author" content="Bibek Mallik">
     
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Bibek Mallik - Supervising Electrical Engineer">
-    <meta property="og:description" content="Leading 70-member engineering teams specializing in power distribution design and grid modernization.">
+    <meta property="og:title" content="Bibek Mallik - Electrical Engineer">
+    <meta property="og:description" content="Leading 90-member engineering teams specializing in power distribution design and grid reliability.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://bibekmallik.com">
+    <meta property="og:url" content="https://bibekmallik.com.np">
     <meta property="og:image" content="assets/img/index.png">
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Bibek Mallik - Supervising Electrical Engineer">
-    <meta name="twitter:description" content="Leading 70-member engineering teams specializing in power distribution design and grid modernization.">
+    <meta name="twitter:title" content="Bibek Mallik - Electrical Engineer">
+    <meta name="twitter:description" content="Leading 90-member engineering teams specializing in power distribution design and grid reliability.">
     <meta name="twitter:image" content="assets/img/index.png">
     
     <!-- Favicon -->
@@ -29,639 +29,796 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
+    <!-- Material Symbols (Outlined) -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    
+    <!-- Boxicons -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS with custom theme extensions mapped to CSS variables -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
         tailwind.config = {
-            darkMode: 'class',
+            darkMode: "class",
             theme: {
                 extend: {
-                    fontFamily: {
-                        'sans': ['Inter', 'system-ui', 'sans-serif'],
-                        'body': ['Source Sans Pro', 'system-ui', 'sans-serif'],
-                        'mono': ['JetBrains Mono', 'monospace'],
-                    },
                     colors: {
-                        'primary': {
-                            50: '#eff6ff',
-                            100: '#dbeafe',
-                            200: '#bfdbfe',
-                            300: '#93c5fd',
-                            400: '#60a5fa',
-                            500: '#3b82f6',
-                            600: '#2563eb',
-                            700: '#1d4ed8',
-                            800: '#1e40af',
-                            900: '#1e3a8a',
-                        },
-                        'secondary': {
-                            50: '#f0fdf4',
-                            100: '#dcfce7',
-                            200: '#bbf7d0',
-                            300: '#86efac',
-                            400: '#4ade80',
-                            500: '#22c55e',
-                            600: '#16a34a',
-                            700: '#15803d',
-                            800: '#166534',
-                            900: '#14532d',
-                        },
-                        'engineering': {
-                            50: '#f8fafc',
-                            100: '#f1f5f9',
-                            200: '#e2e8f0',
-                            300: '#cbd5e1',
-                            400: '#94a3b8',
-                            500: '#64748b',
-                            600: '#475569',
-                            700: '#334155',
-                            800: '#1e293b',
-                            900: '#0f172a',
-                        },
-                        // Accessible color pairs for dark mode
-                        'dark': {
-                            50: '#f8fafc',
-                            100: '#f1f5f9',
-                            200: '#e2e8f0',
-                            300: '#cbd5e1',
-                            400: '#94a3b8',
-                            500: '#64748b',
-                            600: '#475569',
-                            700: '#334155',
-                            800: '#1e293b',
-                            900: '#0f172a',
-                        }
+                        "surface-dim": "var(--surface-dim)",
+                        "surface-container": "var(--surface-container)",
+                        "surface-container-low": "var(--surface-container-low)",
+                        "surface-container-lowest": "var(--surface-container-lowest)",
+                        "surface-container-high": "var(--surface-container-high)",
+                        "surface-container-highest": "var(--surface-container-highest)",
+                        "surface-bright": "var(--surface-bright)",
+                        "primary": "var(--primary)",
+                        "primary-container": "var(--primary-container)",
+                        "secondary": "var(--secondary)",
+                        "border-utility": "var(--border-utility)",
+                        "text-primary": "var(--text-primary)",
+                        "text-muted": "var(--text-muted)",
+                        "on-surface": "var(--on-surface)",
+                        "on-primary": "var(--on-primary)",
                     },
-                    animation: {
-                        'fade-in': 'fadeIn 0.6s ease-out',
-                        'slide-up': 'slideUp 0.8s ease-out',
-                        'slide-in-left': 'slideInLeft 0.8s ease-out',
-                        'slide-in-right': 'slideInRight 0.8s ease-out',
-                        'float': 'float 6s ease-in-out infinite',
-                        'glow': 'glow 2s ease-in-out infinite alternate',
-                    },
-                    keyframes: {
-                        fadeIn: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                        slideUp: {
-                            '0%': { opacity: '0', transform: 'translateY(30px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                        slideInLeft: {
-                            '0%': { opacity: '0', transform: 'translateX(-30px)' },
-                            '100%': { opacity: '1', transform: 'translateX(0)' },
-                        },
-                        slideInRight: {
-                            '0%': { opacity: '0', transform: 'translateX(30px)' },
-                            '100%': { opacity: '1', transform: 'translateX(0)' },
-                        },
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        },
-                        glow: {
-                            '0%': { boxShadow: '0 0 20px rgba(74, 50, 103, 0.5)' },
-                            '100%': { boxShadow: '0 0 30px rgba(74, 50, 103, 0.8)' },
-                        },
+                    fontFamily: {
+                        sans: ["IBM Plex Sans", "sans-serif"],
+                        display: ["Space Grotesk", "sans-serif"],
+                        mono: ["IBM Plex Mono", "monospace"],
                     }
                 }
             }
         }
     </script>
     
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <!-- Boxicons -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    
-    <!-- Custom CSS -->
+    <!-- Custom CSS variables and layout configurations -->
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body class="font-sans antialiased">
-    <!-- Navigation -->
-    <nav class="nav-bg backdrop-blur-md shadow-lg" id="persistent-nav">
+<body class="bg-surface-dim text-on-surface antialiased overflow-x-hidden selection:bg-primary-container/30 selection:text-text-primary">
+
+    <!-- Grid Overlay Background -->
+    <div class="fixed inset-0 grid-bg pointer-events-none z-0"></div>
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="nav-bg sticky top-0 z-50 border-b border-border-utility" id="persistent-nav">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex-shrink-0">
-                    <a href="#home" class="text-xl font-bold gradient-text">Bibek Mallik</a>
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center space-x-2">
+                    <span class="material-symbols-outlined text-primary-container text-2xl">grid_view</span>
+                    <a href="#home" class="font-display font-bold text-lg tracking-wider text-text-primary uppercase">
+                        BIBEK_MALLIK <span class="text-text-muted font-normal text-sm font-mono-labels">// EE</span>
+                    </a>
                 </div>
                 
-                <!-- Desktop Navigation -->
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#home" class="nav-link">Home</a>
-                        <a href="#about" class="nav-link">About</a>
-                        <a href="#skills" class="nav-link">Skills</a>
-                        <a href="#work" class="nav-link">Work</a>
-                        <a href="#contact" class="nav-link">Contact</a>
-                    </div>
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="#experience" class="nav-link">Experience</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#skills" class="nav-link">Skills</a>
+                    <a href="#work" class="nav-link">Projects</a>
                 </div>
                 
-                <!-- Theme Controls -->
+                <!-- Action Controls -->
                 <div class="flex items-center space-x-3">
-                    <button id="theme-toggle" class="p-2 rounded-lg transition-colors" title="Toggle theme">
-                        <i class='bx bx-moon text-xl dark:hidden'></i>
-                        <i class='bx bx-sun text-xl hidden dark:block'></i>
+                    <button id="theme-toggle" class="p-2.5 rounded transition-colors" title="Toggle theme mode">
+                        <span class="material-symbols-outlined text-xl dark:hidden">dark_mode</span>
+                        <span class="material-symbols-outlined text-xl hidden dark:block">light_mode</span>
                     </button>
                     
                     <div class="palette-selector">
-                        <button id="palette-toggle" class="p-2 rounded-lg transition-colors" title="Color palette">
-                            <i class='bx bx-palette text-xl'></i>
+                        <button id="palette-toggle" class="p-2.5 rounded transition-colors" title="Cycle color palette">
+                            <span class="material-symbols-outlined text-xl">palette</span>
                         </button>
                     </div>
                     
-                    <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg transition-colors">
-                        <i class='bx bx-menu text-xl'></i>
+                    <a href="#contact" id="nav-contact-terminal" class="hidden sm:inline-flex items-center bg-surface-container-high hover:bg-surface-bright border border-border-utility px-3 py-1.5 rounded text-primary-container hover:text-text-primary transition-all duration-300 font-mono-labels text-[11px] tracking-wider">
+                        <span class="text-text-muted mr-1">$</span>bash init_contact<span class="terminal-cursor ml-1">█</span>
+                    </a>
+                    
+                    <button id="mobile-menu-button" class="md:hidden p-2.5 rounded transition-colors" title="Menu">
+                        <span class="material-symbols-outlined text-xl">menu</span>
                     </button>
                 </div>
             </div>
         </div>
         
-        <!-- Mobile Navigation -->
-        <div id="mobile-menu" class="md:hidden hidden rounded-b-xl shadow-xl mt-2 mx-4">
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="md:hidden hidden border-t border-border-utility mx-4 rounded-b shadow-xl">
             <div class="px-4 py-3 space-y-2">
-               <a href="#home" class="block py-3 text-base font-medium rounded-lg text-accessible hover:bg-opacity-20">Home</a>
-               <a href="#about" class="block py-3 text-base font-medium rounded-lg text-accessible hover:bg-opacity-20">About</a>
-               <a href="#skills" class="block py-3 text-base font-medium rounded-lg text-accessible hover:bg-opacity-20">Skills</a>
-               <a href="#work" class="block py-3 text-base font-medium rounded-lg text-accessible hover:bg-opacity-20">Work</a>
-               <a href="#contact" class="block py-3 text-base font-medium rounded-lg text-accessible hover:bg-opacity-20">Contact</a>
+                <a href="#experience" class="block py-2.5 text-sm font-mono-labels hover:text-primary-container">Experience</a>
+                <a href="#about" class="block py-2.5 text-sm font-mono-labels hover:text-primary-container">About</a>
+                <a href="#skills" class="block py-2.5 text-sm font-mono-labels hover:text-primary-container">Skills</a>
+                <a href="#work" class="block py-2.5 text-sm font-mono-labels hover:text-primary-container">Projects</a>
+                <a href="#contact" class="block py-2.5 text-sm font-mono-labels hover:text-primary-container">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-section min-h-screen flex items-center justify-center relative overflow-hidden engineering-pattern">
-        <div class="absolute inset-0" style="background: linear-gradient(to bottom right, rgba(74, 50, 103, 0.05), rgba(222, 99, 138, 0.05));"></div>
-        
-        <!-- Floating elements -->
-        <div class="absolute top-20 left-10 w-20 h-20 rounded-full animate-float" style="background-color: rgba(74, 50, 103, 0.2);"></div>
-        <div class="absolute top-40 right-20 w-16 h-16 rounded-full animate-float" style="background-color: rgba(222, 99, 138, 0.2); animation-delay: 2s;"></div>
-        <div class="absolute bottom-20 left-20 w-12 h-12 rounded-full animate-float" style="background-color: rgba(74, 50, 103, 0.2); animation-delay: 4s;"></div>
-        
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="hero-content space-y-8" data-aos="fade-right">
-                    <div class="space-y-4">
-                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
-                            <span class="text-accessible-secondary">Hi, I'm</span>
-                            <br>
-                            <span class="gradient-text">Bibek Mallik</span>
-                        </h1>
-                        <h2 class="text-xl sm:text-2xl lg:text-3xl font-semibold text-accessible">
-                            Supervising Electrical Engineer
-                        </h2>
-                        <p class="hero-description max-w-2xl mx-auto lg:mx-0">
-                            Leading a <span class="font-semibold" style="color: var(--accent-primary);">70-member engineering team</span> at K&A Engineering Consulting. 
-                            Transforming chaotic project schedules into clean execution plans while ensuring electrons behave and people stay sane.
+    <!-- Main Content Container -->
+    <main class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Hero Section -->
+        <section id="home" class="py-12 md:py-24 grid grid-cols-1 md:grid-cols-12 gap-8 items-center min-h-[85vh]">
+            <div class="md:col-span-7 space-y-6" data-aos="fade-right">
+                
+                <!-- Telemetry Badge -->
+                <div class="inline-flex items-center space-x-2 border border-primary-container/30 bg-primary-container/5 px-3 py-1 rounded font-mono-labels text-xs text-primary-container uppercase tracking-widest">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span>SYSTEM.ONLINE // GRID_STABLE</span>
+                </div>
+                
+                <!-- Main Header -->
+                <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-text-primary">
+                    Electrical Engineer
+                    <span class="text-border-utility font-light">|</span>
+                    <span class="text-primary-container block mt-2">Nepal Electricity Authority (NEA)</span>
+                </h1>
+                
+                <!-- Subheadline -->
+                <p class="text-text-muted text-lg max-w-2xl leading-relaxed">
+                    Focused on practical 11 kV/LV distribution engineering, grid reliability, utility mapping, and field operations at the 
+                    <a href="https://www.google.com/maps/search/?api=1&query=Jaleshwor,+Nepal" target="_blank" rel="noopener" class="text-primary-container hover:underline hover:text-primary inline-flex items-center">
+                        Jaleshwor Distribution Center
+                        <span class="material-symbols-outlined text-xs ml-0.5">open_in_new</span>
+                    </a>. Precision engineered solutions for robust utility infrastructure.
+                </p>
+                
+                <!-- Action Buttons -->
+                <div class="pt-4 flex flex-wrap gap-4">
+                    <a href="#experience" class="btn-primary inline-flex items-center justify-center px-6 py-3.5 rounded text-sm tracking-wider">
+                        <span class="material-symbols-outlined text-base mr-2">database</span>
+                        View Operational Log
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Graphic/Image Portal -->
+            <div class="md:col-span-5 relative flex justify-center items-center h-[400px] md:h-[500px]" data-aos="fade-left">
+                <div class="absolute inset-0 bg-primary-container/5 rounded-full opacity-40 blur-3xl mix-blend-screen pointer-events-none"></div>
+                
+                <!-- Dashboard Portal Structure -->
+                <div class="relative w-72 h-72 md:w-96 md:h-96 rounded-full border border-border-utility flex items-center justify-center bg-surface-container-lowest overflow-hidden shadow-2xl">
+                    <img src="assets/img/index-pic.png" alt="Bibek Mallik - Electrical Engineer" class="w-full h-full object-cover z-10 relative">
+                    
+                    <!-- Tech Ring Accents -->
+                    <div class="absolute inset-0 border border-primary-container/20 rounded-full scale-105 orbiting-ring"></div>
+                    <div class="absolute inset-0 border border-secondary/10 rounded-full scale-110 orbiting-ring" style="animation-duration: 35s; animation-direction: reverse;"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section ("OPERATIONAL LOG") -->
+        <section id="experience" class="py-16 md:py-24 border-t border-border-utility/30">
+            <div class="mb-12" data-aos="fade-up">
+                <div class="flex items-center space-x-2 text-xs font-mono-labels text-primary-container uppercase tracking-widest mb-1">
+                    <span>EXECUTION_CHECKPOINT_V1.9</span>
+                </div>
+                <h2 class="font-display text-3xl font-bold text-text-primary uppercase tracking-tight">OPERATIONAL LOG</h2>
+                <div class="w-16 h-1 bg-primary-container mt-3"></div>
+            </div>
+
+            <!-- Career Telemetry / Engineering Experience Stats -->
+            <div class="mb-12 bg-surface-container-low border border-border-utility rounded p-6 max-w-5xl mx-auto" data-aos="fade-up">
+                <div class="flex items-center space-x-2 text-[10px] font-mono-labels text-secondary uppercase tracking-widest mb-4">
+                    <span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+                    <span>LIFETIME METRICS // ENGINEERING EXPERIENCE</span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="border-l-2 border-primary-container pl-4">
+                        <div class="text-xs font-mono-labels text-text-muted uppercase tracking-wider">Total Experience</div>
+                        <div id="dynamic-exp-counter" class="font-display text-2xl font-bold text-text-primary mt-1">
+                            -- Years, -- Days
+                        </div>
+                        <div class="text-[10px] font-mono-labels text-text-muted mt-0.5 uppercase">Since April 15, 2021 (K&amp;A + NEA)</div>
+                    </div>
+                    <div class="border-l-2 border-primary-container pl-4">
+                        <div class="text-xs font-mono-labels text-text-muted uppercase tracking-wider">Projects Led</div>
+                        <div class="font-display text-2xl font-bold text-text-primary mt-1">100+</div>
+                        <div class="text-[10px] font-mono-labels text-text-muted mt-0.5 uppercase">US Utilities + NEA Nepal</div>
+                    </div>
+                    <div class="border-l-2 border-primary-container pl-4">
+                        <div class="text-xs font-mono-labels text-text-muted uppercase tracking-wider">Engineering Leadership</div>
+                        <div class="font-display text-2xl font-bold text-text-primary mt-1">90+ Team Members</div>
+                        <div class="text-[10px] font-mono-labels text-text-muted mt-0.5 uppercase">Supervised at K&amp;A Consulting</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Timeline Container -->
+            <div class="relative ml-4 md:ml-8 border-l border-border-utility space-y-12 pb-4">
+                
+                <!-- Current NEA Role -->
+                <div class="relative pl-8" data-aos="fade-up">
+                    
+                    <!-- pulsing timeline node -->
+                    <div class="absolute -left-[6px] top-4 w-3.5 h-3.5 bg-primary-container rounded-full pulse-node border border-surface-dim"></div>
+                    
+                    <div class="bg-surface-container border border-border-utility rounded p-6 glow-card relative overflow-hidden group">
+                        
+                        <!-- Top status line -->
+                        <div class="absolute top-0 left-0 right-0 h-1 bg-primary-container"></div>
+                        
+                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                            <div>
+                                <h3 class="font-display text-xl font-bold text-text-primary">Electrical Engineer</h3>
+                                <div class="font-mono-labels text-xs text-primary-container mt-1 uppercase tracking-wider">Nepal Electricity Authority (NEA)</div>
+                            </div>
+                            <div class="mt-2 md:mt-0 px-3 py-1 bg-surface-container-high border border-border-utility rounded font-mono-labels text-xs text-text-muted self-start md:self-auto uppercase tracking-wider text-center md:text-right">
+                                <span class="block text-primary-container font-semibold">Present // Field Ops</span>
+                                <span class="block text-[10px] mt-0.5">Feb 2026 &ndash; Present</span>
+                            </div>
+                        </div>
+                        
+                        <p class="text-text-muted leading-relaxed text-sm">
+                            Directing utility field maintenance, fault troubleshooting, localized distribution mapping, and active operations at the 
+                            <a href="https://www.google.com/maps/search/?api=1&query=Jaleshwor,+Nepal" target="_blank" rel="noopener" class="text-primary-container hover:underline hover:text-primary inline-flex items-center">
+                                Jaleshwor
+                                <span class="material-symbols-outlined text-xs ml-0.5">open_in_new</span>
+                            </a> Distribution Center. Lead response initiatives ensuring 11 kV/LV grid reliability, customer service alignment, and network stability.
                         </p>
-                    </div>
-                    
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                        <a href="#contact" class="btn-primary inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-xl transform transition-all duration-200 shadow-lg">
-                            <i class='bx bx-message-square-dots mr-2'></i>
-                            Get In Touch
-                        </a>
-                        <a href="#about" class="btn-secondary inline-flex items-center justify-center px-8 py-3 font-medium rounded-xl transition-all duration-200">
-                            <i class='bx bx-user mr-2'></i>
-                            Learn More
-                        </a>
-                    </div>
-                    
-                    <!-- Updated Stats -->
-                    <div class="grid grid-cols-3 gap-8 pt-8">
-                        <div class="text-center">
-                            <div class="text-3xl font-bold gradient-text">5+</div>
-                            <div class="text-sm text-accessible-secondary">Years Contributing</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-3xl font-bold gradient-text">100+</div>
-                            <div class="text-sm text-accessible-secondary">Projects Led</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-3xl font-bold gradient-text">70+</div>
-                            <div class="text-sm text-accessible-secondary">Team Members</div>
+
+                        <!-- Live NEA Tenure Ticker -->
+                        <div class="mt-4 pt-4 border-t border-border-utility/40 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                            <span class="font-mono-labels text-[10px] text-text-muted uppercase tracking-wider">NEA SERVICE METRICS:</span>
+                            <div id="nea-tenure-ticker" class="font-mono-labels text-xs text-primary-container font-bold bg-surface-container-lowest px-2 py-1 rounded border border-border-utility/55">
+                                -- Months, -- Days
+                            </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="relative" data-aos="fade-left">
-                    <div class="relative w-96 h-96 mx-auto">
-                        <div class="absolute inset-0 rounded-3xl animate-glow" style="background: linear-gradient(to bottom right, var(--accent-primary), var(--accent-secondary));"></div>
-                        <div class="relative rounded-3xl p-4 m-4" style="background-color: var(--bg-primary);">
-                            <img src="assets/img/index-pic.png" alt="Bibek Mallik - Supervising Electrical Engineer" class="w-full h-full object-cover rounded-2xl">
+                <!-- K&A Engineering Role -->
+                <div class="relative pl-8" data-aos="fade-up" data-aos-delay="100">
+                    
+                    <!-- static timeline node -->
+                    <div class="absolute -left-[6px] top-4 w-3.5 h-3.5 bg-surface-container-high border border-border-utility rounded-full"></div>
+                    
+                    <div class="bg-surface-container border border-border-utility rounded p-6 glow-card relative overflow-hidden group">
+                        
+                        <!-- Top status line -->
+                        <div class="absolute top-0 left-0 right-0 h-1 bg-secondary opacity-60"></div>
+                        
+                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                            <div>
+                                <h3 class="font-display text-xl font-bold text-text-primary">Supervising Electrical Engineer</h3>
+                                <div class="font-mono-labels text-xs text-secondary mt-1 uppercase tracking-wider">K&amp;A Engineering Consulting</div>
+                            </div>
+                            <div class="mt-2 md:mt-0 px-3 py-1 bg-surface-container-high border border-border-utility rounded font-mono-labels text-xs text-text-muted self-start md:self-auto uppercase tracking-wider text-center md:text-right">
+                                <span class="block text-secondary font-semibold">5-Year Progression</span>
+                                <span class="block text-[10px] mt-0.5">2021 &ndash; 2026</span>
+                            </div>
+                        </div>
+                        
+                        <p class="text-text-muted leading-relaxed text-sm">
+                            Advanced through multiple technical and leadership tiers to supervise a **90-person engineering team** executing multi-million dollar utility projects entirely from Nepal.
+                        </p>
+                        
+                        <div class="mt-4 pt-4 border-t border-border-utility/40">
+                            <span class="font-mono-labels text-xs text-text-primary uppercase block mb-2 tracking-wider">DELIVERY SUMMARY // US UTILITY SECTOR:</span>
+                            <p class="text-text-muted text-sm leading-relaxed">
+                                Directed engineering design, QA process integration, and client coordination for 10+ distinct major US utility projects spanning from 
+                                <a href="https://www.google.com/maps/search/?api=1&query=California" target="_blank" rel="noopener" class="text-primary-container hover:underline inline-flex items-center">
+                                    California
+                                    <span class="material-symbols-outlined text-xs ml-0.5">open_in_new</span>
+                                </a> to 
+                                <a href="https://www.google.com/maps/search/?api=1&query=Chicago" target="_blank" rel="noopener" class="text-primary-container hover:underline inline-flex items-center">
+                                    Chicago
+                                    <span class="material-symbols-outlined text-xs ml-0.5">open_in_new</span>
+                                </a>. Established team accountability structures that reduced turnaround times while raising quality control compliance. Specialized in power system planning and studies, focusing on DER integration and distribution system protection and control.
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-20" style="background-color: var(--bg-secondary);">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl sm:text-4xl font-bold text-accessible mb-4">About Me</h2>
-                <p class="text-xl text-accessible-secondary max-w-3xl mx-auto">
-                    From designing small distribution projects to leading complex utility transformations
-                </p>
+        <!-- About Section ("SYSTEM OVERVIEW") -->
+        <section id="about" class="py-16 md:py-24 border-t border-border-utility/30">
+            <div class="mb-12" data-aos="fade-up">
+                <div class="flex items-center space-x-2 text-xs font-mono-labels text-primary-container uppercase tracking-widest mb-1">
+                    <span>SYS_OVERVIEW // CORE_CORE_CORE</span>
+                </div>
+                <h2 class="font-display text-3xl font-bold text-text-primary uppercase tracking-tight">SYSTEM OVERVIEW</h2>
+                <div class="w-16 h-1 bg-primary-container mt-3"></div>
             </div>
             
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6" data-aos="slide-in-right">
-                    <div class="glass rounded-2xl p-6">
-                        <h3 class="text-2xl font-bold text-accessible mb-4">My Leadership Philosophy</h3>
-                        <p class="about-text text-lg text-accessible mb-4">
-                            <span class="font-semibold" style="color: var(--accent-primary);">People first. Processes second. Ego nowhere.</span>
+            <div class="grid lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Leadership Philosophy (Safety/Caution Panel style) -->
+                <div class="lg:col-span-5 space-y-6" data-aos="fade-right">
+                    <div class="glass border border-secondary rounded p-6 shadow-lg relative overflow-hidden">
+                        
+                        <!-- Top status bar -->
+                        <div class="absolute top-0 left-0 right-0 h-1 bg-secondary"></div>
+                        
+                        <div class="flex items-center space-x-2 mb-4">
+                            <span class="material-symbols-outlined text-secondary">warning</span>
+                            <span class="font-mono-labels text-xs text-secondary uppercase tracking-widest">LEADERSHIP_PROTOCOL</span>
+                        </div>
+                        
+                        <h3 class="font-display text-2xl font-bold text-text-primary mb-4">"People first. Processes second. Ego nowhere."</h3>
+                        <p class="text-text-muted text-sm leading-relaxed mb-4">
+                            When my team succeeds, I succeed. I invest in upskilling engineers, building clarity in expectations, and creating an environment where operational challenges are tackled collectively without fear.
                         </p>
-                        <p class="about-text">
-                            When my team succeeds, I succeed. I invest in upskilling engineers, building clarity in expectations, 
-                            and creating an environment where challenges are tackled, not feared.
-                        </p>
+                        <blockquote class="border-l-2 border-primary-container/50 pl-4 py-1 italic text-xs font-mono-labels text-text-primary">
+                            "The grid doesn't improve itself. People do that."
+                        </blockquote>
+                    </div>
+                </div>
+                
+                <!-- Summary and strengths matrix -->
+                <div class="lg:col-span-7 space-y-6" data-aos="fade-left">
+                    <h3 class="font-display text-xl font-bold text-text-primary uppercase tracking-wider flex items-center space-x-2">
+                        <span class="material-symbols-outlined text-primary-container">dns</span>
+                        <span>DIAGNOSTIC_METRICS_LOG //</span>
+                    </h3>
+                    
+                    <!-- Diagnostic Matrix Blocks -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        
+                        <div class="bg-surface-container border border-border-utility p-5 rounded glow-card">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="font-mono-labels text-xs text-primary-container uppercase tracking-wider">STRATEGIC_OVERSIGHT</span>
+                                <span class="font-mono-labels text-xs text-emerald-500 uppercase font-semibold">[OK]</span>
+                            </div>
+                            <h4 class="font-display font-bold text-sm text-text-primary mb-1">Multi-Million-Dollar Scale</h4>
+                            <p class="text-text-muted text-xs leading-relaxed">Direct coordination of complex utility architectures and distribution deliverables.</p>
+                        </div>
+                        
+                        <div class="bg-surface-container border border-border-utility p-5 rounded glow-card">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="font-mono-labels text-xs text-primary-container uppercase tracking-wider">QUALITY_ASSURANCE</span>
+                                <span class="font-mono-labels text-xs text-emerald-500 uppercase font-semibold">[PASSED]</span>
+                            </div>
+                            <h4 class="font-display font-bold text-sm text-text-primary mb-1">Process Rigor</h4>
+                            <p class="text-text-muted text-xs leading-relaxed">Establish structured engineering standards, QA review schedules, and delivery logs.</p>
+                        </div>
+                        
+                        <div class="bg-surface-container border border-border-utility p-5 rounded glow-card">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="font-mono-labels text-xs text-primary-container uppercase tracking-wider">DATA_OVERSIGHT</span>
+                                <span class="font-mono-labels text-xs text-emerald-500 uppercase font-semibold">[READY]</span>
+                            </div>
+                            <h4 class="font-display font-bold text-sm text-text-primary mb-1">Data-Driven Modeling</h4>
+                            <p class="text-text-muted text-xs leading-relaxed">Utilizing structural spreadsheets and distribution analytics tools for decision tracking.</p>
+                        </div>
+                        
+                        <div class="bg-surface-container border border-border-utility p-5 rounded glow-card">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="font-mono-labels text-xs text-primary-container uppercase tracking-wider">MENTORING_PROGRAM</span>
+                                <span class="font-mono-labels text-xs text-emerald-500 uppercase font-semibold">[UPTIME]</span>
+                            </div>
+                            <h4 class="font-display font-bold text-sm text-text-primary mb-1">Talent Development</h4>
+                            <p class="text-text-muted text-xs leading-relaxed">Coaching emerging engineers, guiding workflow optimization, and upskilling talent.</p>
+                        </div>
                     </div>
                     
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="glass rounded-xl p-4 text-center">
-                            <i class='bx bx-buildings text-3xl mb-2' style="color: var(--accent-primary);"></i>
-                            <div class="text-2xl font-bold text-accessible">70+</div>
-                            <div class="text-sm text-accessible-secondary">Team Members</div>
+                    <!-- AI Integration: Featured Highlight Block -->
+                    <div class="bg-surface-container border-2 border-primary-container/40 p-6 rounded relative overflow-hidden glow-card">
+                        <!-- Accent top bar -->
+                        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary-container via-primary to-secondary"></div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded border border-primary-container/50 flex items-center justify-center bg-primary-container/10 flex-shrink-0">
+                                <span class="material-symbols-outlined text-primary-container text-2xl">psychology</span>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h4 class="font-display font-bold text-base text-text-primary uppercase tracking-wide">AI &amp; Workflow Automation</h4>
+                                    <span class="font-mono-labels text-[10px] text-primary-container uppercase tracking-widest border border-primary-container/40 px-2 py-0.5 rounded bg-primary-container/5">HIGH_PRIORITY</span>
+                                </div>
+                                <p class="text-text-muted text-sm leading-relaxed mb-3">
+                                    Actively integrating AI-powered workflows into conventional engineering pipelines &mdash; from automated report generation and drawing review scripts to intelligent load analysis preprocessing. If a system task can be optimized, it should be.
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-2 py-0.5 bg-primary-container/10 border border-primary-container/30 rounded font-mono-labels text-[9px] text-primary-container uppercase">llm_integration</span>
+                                    <span class="px-2 py-0.5 bg-primary-container/10 border border-primary-container/30 rounded font-mono-labels text-[9px] text-primary-container uppercase">python_scripts</span>
+                                    <span class="px-2 py-0.5 bg-primary-container/10 border border-primary-container/30 rounded font-mono-labels text-[9px] text-primary-container uppercase">process_automation</span>
+                                    <span class="px-2 py-0.5 bg-primary-container/10 border border-primary-container/30 rounded font-mono-labels text-[9px] text-primary-container uppercase">data_analysis</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="glass rounded-xl p-4 text-center">
-                            <i class='bx bx-trophy text-3xl mb-2' style="color: var(--accent-secondary);"></i>
-                            <div class="text-2xl font-bold text-accessible">100+</div>
-                            <div class="text-sm text-accessible-secondary">Projects Led</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education & Skills Grid -->
+        <section class="py-16 md:py-24 border-t border-border-utility/30 grid grid-cols-1 lg:grid-cols-2 gap-8">
+            
+            <!-- Education ("ACADEMIC DATA") -->
+            <div id="education" data-aos="fade-right">
+                <div class="mb-12">
+                    <div class="flex items-center space-x-2 text-xs font-mono-labels text-primary-container uppercase tracking-widest mb-1">
+                        <span>ACADEMIC_OVERSIGHT // TRUST_INDEX</span>
+                    </div>
+                    <h2 class="font-display text-3xl font-bold text-text-primary uppercase tracking-tight">ACADEMIC DATA</h2>
+                    <div class="w-16 h-1 bg-primary-container mt-3"></div>
+                </div>
+                
+                <div class="bg-surface-container border border-border-utility rounded p-8 glow-card flex flex-col relative overflow-hidden group">
+                    <!-- Status indicators -->
+                    <div class="absolute top-4 right-4 flex items-center space-x-2">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                        <span class="font-mono-labels text-[10px] text-text-muted uppercase">verified_ioe</span>
+                    </div>
+                    
+                    <!-- Premier tag first -->
+                    <div class="flex items-center space-x-2 mb-3">
+                        <span class="material-symbols-outlined text-primary-container text-2xl" style="font-variation-settings: 'FILL' 1;">school</span>
+                        <div class="px-2.5 py-1 bg-primary-container/10 border border-primary-container rounded font-mono-labels text-xs text-primary-container uppercase tracking-wider font-semibold">
+                            Premier Institution
+                        </div>
+                    </div>
+                    
+                    <!-- Institution name prominently first -->
+                    <h3 class="font-display text-3xl font-bold text-text-primary mb-1">
+                        <a href="https://pcampus.edu.np/" target="_blank" rel="noopener" class="hover:text-primary-container transition-colors inline-flex items-center gap-1">
+                            Pulchowk Campus
+                            <span class="material-symbols-outlined text-sm">open_in_new</span>
+                        </a>
+                    </h3>
+                    <p class="font-mono-labels text-xs text-text-muted mb-3 uppercase tracking-wider">Institute of Engineering (IOE) // Tribhuvan University</p>
+                    <p class="text-text-muted text-xs leading-relaxed mb-5">
+                        Established in 1972, Pulchowk Campus is the flagship central campus of the Institute of Engineering (IOE) under Tribhuvan University, located in Lalitpur. It is Nepal’s premier engineering institution, offering elite Bachelor’s, Master’s, and Doctoral programs across various engineering and architecture disciplines.
+                    </p>
+                    
+                    <!-- Degree info below -->
+                    <div class="mt-auto pt-5 border-t border-border-utility/55">
+                        <p class="font-mono-labels text-[10px] text-text-muted uppercase tracking-wider mb-1">DEGREE_AWARDED</p>
+                        <h4 class="font-display text-xl font-bold text-text-primary">Bachelor of Engineering (B.E.)</h4>
+                        <p class="text-base text-primary-container font-mono-labels mt-1">Electrical Engineering</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Skills ("TECHNICAL MATRIX") -->
+            <div id="skills" data-aos="fade-left">
+                <div class="mb-12">
+                    <div class="flex items-center space-x-2 text-xs font-mono-labels text-primary-container uppercase tracking-widest mb-1">
+                        <span>SYS_CAPABILITIES // OPTIMIZATION_INDEX</span>
+                    </div>
+                    <h2 class="font-display text-3xl font-bold text-text-primary uppercase tracking-tight">TECHNICAL MATRIX</h2>
+                    <div class="w-16 h-1 bg-primary-container mt-3"></div>
+                </div>
+                
+                <div class="bg-surface-container-low border border-border-utility rounded p-8 h-[380px] overflow-y-auto space-y-5">
+                    
+                    <!-- Skill Item 1 -->
+                    <div class="skill-item">
+                        <div class="flex justify-between items-center mb-1.5 font-mono-labels text-xs uppercase tracking-wider">
+                            <span class="font-semibold text-text-primary">CYME DIST // Distribution</span>
+                            <span class="text-primary-container">95%</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill" data-width="95%"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Skill Item 2 -->
+                    <div class="skill-item">
+                        <div class="flex justify-between items-center mb-1.5 font-mono-labels text-xs uppercase tracking-wider">
+                            <span class="font-semibold text-text-primary">ASPEN Oneliner // Protection</span>
+                            <span class="text-primary-container">85%</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill" data-width="85%"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Skill Item 3 -->
+                    <div class="skill-item">
+                        <div class="flex justify-between items-center mb-1.5 font-mono-labels text-xs uppercase tracking-wider">
+                            <span class="font-semibold text-text-primary">QGIS // Spatial Mapping</span>
+                            <span class="text-primary-container">80%</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill" data-width="80%"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Skill Item 4 -->
+                    <div class="skill-item">
+                        <div class="flex justify-between items-center mb-1.5 font-mono-labels text-xs uppercase tracking-wider">
+                            <span class="font-semibold text-text-primary">Python // Automation</span>
+                            <span class="text-primary-container">60%</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill" data-width="60%"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Skill Item 5 -->
+                    <div class="skill-item">
+                        <div class="flex justify-between items-center mb-1.5 font-mono-labels text-xs uppercase tracking-wider">
+                            <span class="font-semibold text-text-primary">PSCAD // Power Systems</span>
+                            <span class="text-primary-container">50%</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill" data-width="50%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Section ("PROJECTS_REGISTRY") -->
+        <section id="work" class="py-16 md:py-24 border-t border-border-utility/30">
+            <div class="mb-12" data-aos="fade-up">
+                <div class="flex items-center space-x-2 text-xs font-mono-labels text-primary-container uppercase tracking-widest mb-1">
+                    <span>ARCHIVAL_OVERSIGHT // PROJECTS_REGISTRY</span>
+                </div>
+                <h2 class="font-display text-3xl font-bold text-text-primary uppercase tracking-tight">PROJECTS REGISTRY</h2>
+                <div class="w-16 h-1 bg-primary-container mt-3"></div>
+            </div>
+            
+            <!-- Grid Matrix -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Project Card 1 -->
+                <div class="bg-surface-container border border-border-utility rounded overflow-hidden glow-card group relative" data-aos="fade-up">
+                    <div class="relative h-48 overflow-hidden bg-surface-container-lowest">
+                        <img src="assets/img/power_dist.png" alt="Power Distribution Design" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <!-- Top left flag -->
+                        <div class="absolute top-3 left-3 bg-surface-container-high/90 border border-border-utility px-2.5 py-0.5 rounded font-mono-labels text-[9px] text-primary-container uppercase">
+                            active_cyme
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <h3 class="font-display font-bold text-lg text-text-primary">Power Distribution Design</h3>
+                        <p class="text-text-muted text-xs leading-relaxed">
+                            Comprehensive distribution system optimization and modernization. Incorporates fault study and load balancing methodologies.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="px-2 py-0.5 bg-surface-container-high border border-border-utility rounded font-mono-labels text-[9px] text-text-muted uppercase">cyme_dist</span>
+                            <span class="px-2 py-0.5 bg-surface-container-high border border-border-utility rounded font-mono-labels text-[9px] text-text-muted uppercase">load_flow</span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="space-y-6" data-aos="slide-in-left">
-                    <h3 class="text-2xl font-bold text-accessible">Key Strengths I Bring</h3>
-                    
-                    <div class="space-y-4">
-                        <div class="flex items-start space-x-4">
-                            <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-1" style="background-color: rgba(74, 50, 103, 0.1);">
-                                <i class='bx bx-check text-sm' style="color: var(--accent-primary);"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-accessible">Strategic Oversight</h4>
-                                <p class="about-text text-accessible-secondary">Multi-million-dollar utility projects with data-driven decision making</p>
-                            </div>
+                <!-- Project Card 2 -->
+                <div class="bg-surface-container border border-border-utility rounded overflow-hidden glow-card group relative" data-aos="fade-up" data-aos-delay="50">
+                    <div class="relative h-48 overflow-hidden bg-surface-container-lowest">
+                        <img src="assets/img/grid_mod.png" alt="Grid Modernization" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute top-3 left-3 bg-surface-container-high/90 border border-border-utility px-2.5 py-0.5 rounded font-mono-labels text-[9px] text-primary-container uppercase">
+                            grid_mod
                         </div>
-                        
-                        <div class="flex items-start space-x-4">
-                            <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-1" style="background-color: rgba(222, 99, 138, 0.1);">
-                                <i class='bx bx-check text-sm' style="color: var(--accent-secondary);"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-accessible">Quality Assurance</h4>
-                                <p class="about-text text-accessible-secondary">Process accountability and calm execution under pressure</p>
-                            </div>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <h3 class="font-display font-bold text-lg text-text-primary">Grid Modernization</h3>
+                        <p class="text-text-muted text-xs leading-relaxed">
+                            Executing advanced power system planning and protective relay coordination studies specialized in DER integration, distribution system protection, and control.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="px-2 py-0.5 bg-surface-container-high border border-border-utility rounded font-mono-labels text-[9px] text-text-muted uppercase">aspen</span>
+                            <span class="px-2 py-0.5 bg-surface-container-high border border-border-utility rounded font-mono-labels text-[9px] text-text-muted uppercase">pscad</span>
                         </div>
-                        
-                        <div class="flex items-start space-x-4">
-                            <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-1" style="background-color: rgba(74, 50, 103, 0.1);">
-                                <i class='bx bx-check text-sm' style="color: var(--accent-primary);"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-accessible">Team Development</h4>
-                                <p class="about-text text-accessible-secondary">Mentoring emerging engineering talent and building strong teams</p>
-                            </div>
+                    </div>
+                </div>
+                
+                <!-- Project Card 3 -->
+                <div class="bg-surface-container border border-border-utility rounded overflow-hidden glow-card group relative" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative h-48 overflow-hidden bg-surface-container-lowest">
+                        <img src="assets/img/der_integration.png" alt="DER Integration" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute top-3 left-3 bg-surface-container-high/90 border border-border-utility px-2.5 py-0.5 rounded font-mono-labels text-[9px] text-primary-container uppercase">
+                            der_planning
                         </div>
-                        
-                        <div class="flex items-start space-x-4">
-                            <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-1" style="background-color: rgba(222, 99, 138, 0.1);">
-                                <i class='bx bx-check text-sm' style="color: var(--accent-secondary);"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-accessible">Innovation & AI</h4>
-                                <p class="about-text text-accessible-secondary">Exploring AI integration to automate workflows and improve efficiency</p>
-                            </div>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <h3 class="font-display font-bold text-lg text-text-primary">DER Integration</h3>
+                        <p class="text-text-muted text-xs leading-relaxed">
+                            Distributed Energy Resources modeling, grid impact evaluations, and strategic scaling of localized generation modules.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="px-2 py-0.5 bg-surface-container-high border border-border-utility rounded font-mono-labels text-[9px] text-text-muted uppercase">cyme_dist</span>
+                            <span class="px-2 py-0.5 bg-surface-container-high border border-border-utility rounded font-mono-labels text-[9px] text-text-muted uppercase">python</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Card 4 -->
+                <div class="bg-surface-container border border-border-utility rounded overflow-hidden glow-card group relative" data-aos="fade-up" data-aos-delay="150">
+                    <div class="relative h-48 overflow-hidden bg-surface-container-lowest">
+                        <img src="assets/img/project_mgmt.png" alt="Project Management" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute top-3 left-3 bg-surface-container-high/90 border border-border-utility px-2.5 py-0.5 rounded font-mono-labels text-[9px] text-primary-container uppercase">
+                            ops_lead
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <h3 class="font-display font-bold text-lg text-text-primary">Project Management</h3>
+                        <p class="text-text-muted text-xs leading-relaxed">
+                            Direct management of multi-million dollar utility assets, schedule optimization, and cross-functional engineering alignments.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="px-2 py-0.5 bg-surface-container-high border border-border-utility rounded font-mono-labels text-[9px] text-text-muted uppercase">gantt</span>
+                            <span class="px-2 py-0.5 bg-surface-container-high border border-border-utility rounded font-mono-labels text-[9px] text-text-muted uppercase">budgets</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Card 5 -->
+                <div class="bg-surface-container border border-border-utility rounded overflow-hidden glow-card group relative" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative h-48 overflow-hidden bg-surface-container-lowest">
+                        <img src="assets/img/quality_assurance.png" alt="Quality Assurance" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute top-3 left-3 bg-surface-container-high/90 border border-border-utility px-2.5 py-0.5 rounded font-mono-labels text-[9px] text-primary-container uppercase">
+                            qa_qc_log
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <h3 class="font-display font-bold text-lg text-text-primary">Quality Assurance</h3>
+                        <p class="text-text-muted text-xs leading-relaxed">
+                            Implementing process accountability matrices, drawing review structures, and design check protocols to ensure design accuracy.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="px-2 py-0.5 bg-surface-container-high border border-border-utility rounded font-mono-labels text-[9px] text-text-muted uppercase">standards</span>
+                            <span class="px-2 py-0.5 bg-surface-container-high border border-border-utility rounded font-mono-labels text-[9px] text-text-muted uppercase">drawings</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Card 6 -->
+                <div class="bg-surface-container border border-border-utility rounded overflow-hidden glow-card group relative" data-aos="fade-up" data-aos-delay="250">
+                    <div class="relative h-48 overflow-hidden bg-surface-container-lowest">
+                        <img src="assets/img/team_dev.png" alt="Team Development" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute top-3 left-3 bg-surface-container-high/90 border border-border-utility px-2.5 py-0.5 rounded font-mono-labels text-[9px] text-primary-container uppercase">
+                            mentoring
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <h3 class="font-display font-bold text-lg text-text-primary">Team Development</h3>
+                        <p class="text-text-muted text-xs leading-relaxed">
+                            Building and mentoring emerging engineering cohorts. Direct leadership upskilling modules for technical team leads.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="px-2 py-0.5 bg-surface-container-high border border-border-utility rounded font-mono-labels text-[9px] text-text-muted uppercase">coaching</span>
+                            <span class="px-2 py-0.5 bg-surface-container-high border border-border-utility rounded font-mono-labels text-[9px] text-text-muted uppercase">upskilling</span>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <div class="mt-16 text-center" data-aos="fade-up">
-                <blockquote class="text-xl italic text-accessible max-w-4xl mx-auto">
-                    "Engineering excellence, process rigor, and a team that grows together — that's what I stand for. 
-                    The grid doesn't improve itself. <span class="font-semibold" style="color: var(--accent-primary);">People do that.</span>"
-                </blockquote>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-20" style="background-color: var(--bg-primary);">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl sm:text-4xl font-bold text-accessible mb-4">Professional Skills</h2>
-                <p class="text-xl text-accessible-secondary max-w-3xl mx-auto">
-                    Technical expertise combined with leadership competencies
-                </p>
+        <!-- Contact Section ("MESSAGE_TRANSMISSION") -->
+        <section id="contact" class="py-16 md:py-24 border-t border-border-utility/30">
+            <div class="mb-12" data-aos="fade-up">
+                <div class="flex items-center space-x-2 text-xs font-mono-labels text-primary-container uppercase tracking-widest mb-1">
+                    <span>CONNECT_INTERFACE // IO_PORT</span>
+                </div>
+                <h2 class="font-display text-3xl font-bold text-text-primary uppercase tracking-tight">MESSAGE TRANSMISSION</h2>
+                <div class="w-16 h-1 bg-primary-container mt-3"></div>
             </div>
             
-            <div class="grid lg:grid-cols-2 gap-12">
-                <!-- Technical Skills -->
-                <div data-aos="slide-in-right">
-                    <h3 class="text-2xl font-bold text-accessible mb-8">Technical Expertise</h3>
+            <div class="grid lg:grid-cols-12 gap-8 items-stretch">
+                
+                <!-- Contact parameters -->
+                <div class="lg:col-span-5 flex flex-col justify-between space-y-8" data-aos="fade-right">
                     <div class="space-y-6">
-                        <div class="skill-item">
-                            <div class="flex justify-between items-center mb-2">
-                                <span class="font-medium text-accessible">CYME DIST</span>
-                                <span class="text-sm font-semibold" style="color: var(--accent-primary);">95%</span>
-                            </div>
-                            <div class="w-full rounded-full h-3" style="background-color: var(--bg-secondary);">
-                                <div class="h-3 rounded-full transition-all duration-1000" style="background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary)); width: 95%;"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="flex justify-between items-center mb-2">
-                                <span class="font-medium text-accessible">ASPEN Oneliner</span>
-                                <span class="text-sm font-semibold" style="color: var(--accent-primary);">85%</span>
-                            </div>
-                            <div class="w-full rounded-full h-3" style="background-color: var(--bg-secondary);">
-                                <div class="h-3 rounded-full transition-all duration-1000" style="background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary)); width: 85%;"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="flex justify-between items-center mb-2">
-                                <span class="font-medium text-accessible">Python</span>
-                                <span class="text-sm font-semibold" style="color: var(--accent-primary);">60%</span>
-                            </div>
-                            <div class="w-full rounded-full h-3" style="background-color: var(--bg-secondary);">
-                                <div class="h-3 rounded-full transition-all duration-1000" style="background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary)); width: 60%;"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="flex justify-between items-center mb-2">
-                                <span class="font-medium text-accessible">PSCAD</span>
-                                <span class="text-sm font-semibold" style="color: var(--accent-primary);">50%</span>
-                            </div>
-                            <div class="w-full rounded-full h-3" style="background-color: var(--bg-secondary);">
-                                <div class="h-3 rounded-full transition-all duration-1000" style="background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary)); width: 50%;"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Leadership Skills -->
-                <div data-aos="slide-in-left">
-                    <h3 class="text-2xl font-bold text-accessible mb-8">Leadership Competencies</h3>
-                    <div class="space-y-6">
-                        <div class="skill-item">
-                            <div class="flex justify-between items-center mb-2">
-                                <span class="font-medium text-accessible">Team Leadership</span>
-                                <span class="text-sm font-semibold" style="color: var(--accent-secondary);">98%</span>
-                            </div>
-                            <div class="w-full rounded-full h-3" style="background-color: var(--bg-secondary);">
-                                <div class="h-3 rounded-full transition-all duration-1000" style="background: linear-gradient(to right, var(--accent-secondary), var(--accent-primary)); width: 98%;"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="flex justify-between items-center mb-2">
-                                <span class="font-medium text-accessible">Project Management</span>
-                                <span class="text-sm font-semibold" style="color: var(--accent-secondary);">92%</span>
-                            </div>
-                            <div class="w-full rounded-full h-3" style="background-color: var(--bg-secondary);">
-                                <div class="h-3 rounded-full transition-all duration-1000" style="background: linear-gradient(to right, var(--accent-secondary), var(--accent-primary)); width: 92%;"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="flex justify-between items-center mb-2">
-                                <span class="font-medium text-accessible">Quality Assurance</span>
-                                <span class="text-sm font-semibold" style="color: var(--accent-secondary);">95%</span>
-                            </div>
-                            <div class="w-full rounded-full h-3" style="background-color: var(--bg-secondary);">
-                                <div class="h-3 rounded-full transition-all duration-1000" style="background: linear-gradient(to right, var(--accent-secondary), var(--accent-primary)); width: 95%;"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="flex justify-between items-center mb-2">
-                                <span class="font-medium text-accessible">Process Innovation</span>
-                                <span class="text-sm font-semibold" style="color: var(--accent-secondary);">88%</span>
-                            </div>
-                            <div class="w-full rounded-full h-3" style="background-color: var(--bg-secondary);">
-                                <div class="h-3 rounded-full transition-all duration-1000" style="background: linear-gradient(to right, var(--accent-secondary), var(--accent-primary)); width: 88%;"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Work Section -->
-    <section id="work" class="py-20" style="background-color: var(--bg-secondary);">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl sm:text-4xl font-bold text-accessible mb-4">Featured Work</h2>
-                <p class="text-xl text-accessible-secondary max-w-3xl mx-auto">
-                    Complex utility projects and distribution system designs
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="work-item group cursor-pointer" data-aos="fade-up" data-aos-delay="100">
-                    <div class="relative overflow-hidden rounded-2xl shadow-lg transform group-hover:scale-105 transition-all duration-300" style="background-color: var(--bg-primary);">
-                        <img src="assets/img/Power distribution design.webp" alt="K&A Engineering Power Distribution Project" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <div class="absolute bottom-4 left-4 right-4 text-white">
-                                <h3 class="text-xl font-bold mb-2">Power Distribution Design</h3>
-                                <p class="text-sm">Comprehensive distribution system optimization and modernization</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="work-item group cursor-pointer" data-aos="fade-up" data-aos-delay="200">
-                    <div class="relative overflow-hidden rounded-2xl shadow-lg transform group-hover:scale-105 transition-all duration-300" style="background-color: var(--bg-primary);">
-                        <img src="assets/img/grid modernization.jpg" alt="Grid Modernization Project" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <div class="absolute bottom-4 left-4 right-4 text-white">
-                                <h3 class="text-xl font-bold mb-2">Grid Modernization</h3>
-                                <p class="text-sm">Smart grid implementation and renewable energy integration</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="work-item group cursor-pointer" data-aos="fade-up" data-aos-delay="300">
-                    <div class="relative overflow-hidden rounded-2xl shadow-lg transform group-hover:scale-105 transition-all duration-300" style="background-color: var(--bg-primary);">
-                        <img src="assets/img/DER Integration.jpg" alt="DER Integration Project" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <div class="absolute bottom-4 left-4 right-4 text-white">
-                                <h3 class="text-xl font-bold mb-2">DER Integration</h3>
-                                <p class="text-sm">Distributed Energy Resources planning and integration strategies</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="work-item group cursor-pointer" data-aos="fade-up" data-aos-delay="400">
-                    <div class="relative overflow-hidden rounded-2xl shadow-lg transform group-hover:scale-105 transition-all duration-300" style="background-color: var(--bg-primary);">
-                        <img src="assets/img/Project Management.jpg" alt="Utility Project Management" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <div class="absolute bottom-4 left-4 right-4 text-white">
-                                <h3 class="text-xl font-bold mb-2">Project Management</h3>
-                                <p class="text-sm">Leading multi-million dollar utility infrastructure projects</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="work-item group cursor-pointer" data-aos="fade-up" data-aos-delay="500">
-                    <div class="relative overflow-hidden rounded-2xl shadow-lg transform group-hover:scale-105 transition-all duration-300" style="background-color: var(--bg-primary);">
-                        <img src="assets/img/Quality Assurance.png" alt="Quality Assurance Systems" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <div class="absolute bottom-4 left-4 right-4 text-white">
-                                <h3 class="text-xl font-bold mb-2">Quality Assurance</h3>
-                                <p class="text-sm">Process accountability and engineering excellence standards</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="work-item group cursor-pointer" data-aos="fade-up" data-aos-delay="600">
-                    <div class="relative overflow-hidden rounded-2xl shadow-lg transform group-hover:scale-105 transition-all duration-300" style="background-color: var(--bg-primary);">
-                        <img src="assets/img/Team Development.webp" alt="Team Development Program" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <div class="absolute bottom-4 left-4 right-4 text-white">
-                                <h3 class="text-xl font-bold mb-2">Team Development</h3>
-                                <p class="text-sm">Building and mentoring high-performing engineering teams</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-20" style="background-color: var(--bg-primary);">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl sm:text-4xl font-bold text-accessible mb-4">Get In Touch</h2>
-                <p class="text-xl text-accessible-secondary max-w-3xl mx-auto contact-text">
-                    Ready to discuss your next engineering project or collaboration opportunity?
-                </p>
-            </div>
-            
-            <div class="grid lg:grid-cols-2 gap-12">
-                <div class="space-y-8" data-aos="slide-in-right">
-                    <div>
-                        <h3 class="text-2xl font-bold text-accessible mb-4">Let's Connect</h3>
-                        <p class="contact-text text-accessible-secondary mb-6">
-                            I'm always interested in discussing innovative engineering solutions, 
-                            team leadership opportunities, and ways to improve our industry.
+                        <h3 class="font-display text-2xl font-bold text-text-primary uppercase">CONNECT_PARAMS:</h3>
+                        <p class="text-text-muted text-sm leading-relaxed max-w-sm">
+                            Ready to establish data transfer channels. Transmit inquiries regarding grid analysis, operations leadership, or collaborative ventures.
                         </p>
                     </div>
                     
                     <div class="space-y-4">
+                        
+                        <!-- Connection Port: Email -->
                         <div class="flex items-center space-x-4">
-                            <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background-color: rgba(74, 50, 103, 0.1);">
-                                <i class='bx bx-envelope text-xl' style="color: var(--accent-primary);"></i>
+                            <div class="w-12 h-12 rounded border border-border-utility flex items-center justify-center bg-surface-container text-primary-container">
+                                <span class="material-symbols-outlined">alternate_email</span>
                             </div>
                             <div>
-                                <p class="font-medium text-accessible">Email</p>
-                                <p class="contact-text text-accessible-secondary">bibek.mallik@kapower.us</p>
+                                <p class="font-mono-labels text-[10px] text-text-muted uppercase tracking-wider">SYS_TARGET_EMAIL</p>
+                                <a href="mailto:bibek.mallik29@gmail.com" class="font-display text-sm font-semibold text-text-primary hover:text-primary-container transition-colors">
+                                    bibek.mallik29@gmail.com
+                                </a>
                             </div>
                         </div>
                         
+                        <!-- Connection Port: Company - NEA -->
                         <div class="flex items-center space-x-4">
-                            <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background-color: rgba(222, 99, 138, 0.1);">
-                                <i class='bx bx-building text-xl' style="color: var(--accent-secondary);"></i>
+                            <div class="w-12 h-12 rounded border border-border-utility flex items-center justify-center bg-surface-container text-primary-container">
+                                <span class="material-symbols-outlined">bolt</span>
                             </div>
                             <div>
-                                <p class="font-medium text-accessible">Company</p>
-                                <p class="contact-text text-accessible-secondary">K&A Engineering Consulting</p>
+                                <p class="font-mono-labels text-[10px] text-text-muted uppercase tracking-wider">CURRENT_ORG</p>
+                                <a href="https://nea.org.np/" target="_blank" rel="noopener" class="font-display text-sm font-semibold text-text-primary hover:text-primary-container transition-colors inline-flex items-center">
+                                    Nepal Electricity Authority (NEA)
+                                    <span class="material-symbols-outlined text-xs ml-1">open_in_new</span>
+                                </a>
                             </div>
                         </div>
                         
+                        <!-- Connection Port: Company - K&A -->
                         <div class="flex items-center space-x-4">
-                            <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background-color: rgba(74, 50, 103, 0.1);">
-                                <i class='bx bx-map text-xl' style="color: var(--accent-primary);"></i>
+                            <div class="w-12 h-12 rounded border border-border-utility flex items-center justify-center bg-surface-container text-secondary">
+                                <span class="material-symbols-outlined">corporate_fare</span>
                             </div>
                             <div>
-                                <p class="font-medium text-accessible">Location</p>
-                                <p class="contact-text text-accessible-secondary">Kathmandu, Nepal</p>
+                                <p class="font-mono-labels text-[10px] text-text-muted uppercase tracking-wider">PREVIOUS_ORG</p>
+                                <a href="https://kapower.us/" target="_blank" rel="noopener" class="font-display text-sm font-semibold text-text-primary hover:text-secondary transition-colors inline-flex items-center">
+                                    K&amp;A Engineering Consulting
+                                    <span class="material-symbols-outlined text-xs ml-1">open_in_new</span>
+                                </a>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="flex space-x-4">
-                        <a href="https://www.linkedin.com/in/bibek-mallik/" class="w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition-transform" style="background-color: rgba(74, 50, 103, 0.1);">
-                            <i class='bx bxl-linkedin text-xl' style="color: var(--accent-primary);"></i>
+                    <!-- Social Ports -->
+                    <div class="pt-4 flex space-x-3">
+                        <a href="https://www.linkedin.com/in/bibek-mallik/" target="_blank" rel="noopener" class="w-11 h-11 border border-border-utility rounded flex items-center justify-center bg-surface-container-low hover:bg-surface-container-high hover:border-primary-container transition-all" title="LinkedIn Profile">
+                            <i class='bx bxl-linkedin text-lg text-primary-container'></i>
                         </a>
-                        <a href="https://www.facebook.com/bibekmallik29" class="w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition-transform" style="background-color: rgba(74, 50, 103, 0.1);">
-                            <i class='bx bxl-facebook text-xl' style="color: var(--accent-primary);"></i>
+                        <a href="https://www.facebook.com/bibekmallik29" target="_blank" rel="noopener" class="w-11 h-11 border border-border-utility rounded flex items-center justify-center bg-surface-container-low hover:bg-surface-container-high hover:border-primary-container transition-all" title="Facebook Profile">
+                            <i class='bx bxl-facebook text-lg text-primary-container'></i>
                         </a>
-                        <a href="https://www.instagram.com/bibek.mallik29/" class="w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition-transform" style="background-color: rgba(74, 50, 103, 0.1);">
-                            <i class='bx bxl-instagram text-xl' style="color: var(--accent-primary);"></i>
+                        <a href="https://www.instagram.com/bibek.mallik29/" target="_blank" rel="noopener" class="w-11 h-11 border border-border-utility rounded flex items-center justify-center bg-surface-container-low hover:bg-surface-container-high hover:border-primary-container transition-all" title="Instagram Profile">
+                            <i class='bx bxl-instagram text-lg text-primary-container'></i>
                         </a>
                     </div>
                 </div>
                 
-                <div class="glass rounded-2xl p-8" data-aos="slide-in-left">
+                <!-- Contact form container -->
+                <div class="lg:col-span-7 bg-surface-container border border-border-utility rounded p-8 glow-card relative" data-aos="fade-left">
                     <form id="contact-form" class="space-y-6">
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-accessible mb-2">Full Name</label>
-                            <input type="text" id="name" name="name" required class="form-input w-full px-4 py-3 rounded-xl border outline-none transition-colors">
+                        
+                        <div class="grid sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block font-mono-labels text-[10px] text-text-muted uppercase tracking-wider mb-2">FULL_NAME</label>
+                                <input type="text" id="name" name="name" required class="form-input w-full px-4 py-3 rounded outline-none border text-sm">
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block font-mono-labels text-[10px] text-text-muted uppercase tracking-wider mb-2">EMAIL_ADDRESS</label>
+                                <input type="email" id="email" name="_replyto" required class="form-input w-full px-4 py-3 rounded outline-none border text-sm">
+                            </div>
                         </div>
                         
                         <div>
-                            <label for="email" class="block text-sm font-medium text-accessible mb-2">Email Address</label>
-                            <input type="email" id="email" name="_replyto" required class="form-input w-full px-4 py-3 rounded-xl border outline-none transition-colors">
+                            <label for="subject" class="block font-mono-labels text-[10px] text-text-muted uppercase tracking-wider mb-2">TRANSMISSION_SUBJECT</label>
+                            <input type="text" id="subject" name="subject" required class="form-input w-full px-4 py-3 rounded outline-none border text-sm">
                         </div>
                         
                         <div>
-                            <label for="subject" class="block text-sm font-medium text-accessible mb-2">Subject</label>
-                            <input type="text" id="subject" name="subject" class="form-input w-full px-4 py-3 rounded-xl border outline-none transition-colors">
+                            <label for="message" class="block font-mono-labels text-[10px] text-text-muted uppercase tracking-wider mb-2">TRANSMISSION_BODY_LOG</label>
+                            <textarea id="message" name="message" rows="5" required class="form-input w-full px-4 py-3 rounded outline-none border text-sm resize-none"></textarea>
                         </div>
                         
-                        <div>
-                            <label for="message" class="block text-sm font-medium text-accessible mb-2">Message</label>
-                            <textarea id="message" name="message" rows="5" required class="form-input w-full px-4 py-3 rounded-xl border outline-none transition-colors resize-none contact-text"></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn-primary w-full font-medium py-3 px-6 rounded-xl transform transition-all duration-200 shadow-lg flex items-center justify-center space-x-2">
-                            <i class='bx bx-send'></i>
-                            <span>Send Message</span>
+                        <button type="submit" class="btn-primary w-full py-4 px-6 rounded flex items-center justify-center space-x-2 text-sm font-semibold tracking-widest">
+                            <span class="material-symbols-outlined text-base">send</span>
+                            <span>TRANSMIT_DATA</span>
                         </button>
                     </form>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+    </main>
 
     <!-- Footer -->
-    <footer class="py-12" style="background-color: var(--bg-secondary);">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <div class="mb-8">
-                    <h3 class="text-2xl font-bold gradient-text mb-4">Bibek Mallik</h3>
-                    <p class="text-accessible max-w-2xl mx-auto contact-text">
-                        Supervising Electrical Engineer passionate about power distribution design, 
-                        team leadership, and pushing the boundaries of engineering excellence.
-                    </p>
-                </div>
-                
-                <div class="pt-8 border-t" style="border-color: var(--nav-border);">
-                    <p class="text-accessible-secondary text-sm">
-                        &copy; 2024 Bibek Mallik. All rights reserved. 
-                        <span class="mx-2">|</span>
-                        <span>Engineering excellence since 2019</span>
-                    </p>
-                </div>
+    <footer class="border-t border-border-utility bg-surface-container-lowest text-xs font-mono-labels uppercase tracking-widest relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-6">
+            
+            <div class="space-y-1">
+                <div class="font-display text-sm font-bold text-text-primary tracking-wider uppercase">BIBEK_MALLIK // EE</div>
+                <div class="text-[10px] text-text-muted tracking-wide">PRECISION POWER DISTRIBUTION &amp; GRID LEADERSHIP</div>
+            </div>
+            
+            <div class="flex flex-wrap justify-center items-center gap-4 text-[10px]">
+                <span class="text-primary-container font-semibold">STATUS: NOMINAL</span>
+            </div>
+            
+            <div class="text-[11px] text-text-muted leading-relaxed md:text-right">
+                © 2026 PRECISION ENGINEERED BY BIBEK MALLIK.<br/>
+                <span class="text-[10px] text-text-muted">ALL RIGHTS REGISTERED.</span><br/>
+                <span class="inline-flex items-center space-x-1.5 mt-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span id="footer-uptime-ticker" class="text-[9px] text-text-muted/75 tracking-wider">UPTIME: -- YEARS</span>
+                </span>
             </div>
         </div>
     </footer>

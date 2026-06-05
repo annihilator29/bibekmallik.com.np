@@ -1,0 +1,6 @@
+rules:
+  - id: test-rule
+    message: Found console.log statement
+    languages: [javascript]
+    severity: INFO
+    pattern: console.log(...)

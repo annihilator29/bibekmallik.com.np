@@ -1,16 +1,18 @@
 // Initialize AOS
-AOS.init({
-    duration: 800,
-    once: true,
-    offset: 100
-});
+if (typeof AOS !== 'undefined') {
+    AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100
+    });
+}
 
-// Theme Management with CSS Variables
+// Theme Management with CSS Variables & Classes
 class ThemeManager {
     constructor() {
         this.themeToggle = document.getElementById('theme-toggle');
         this.html = document.documentElement;
-        this.currentTheme = localStorage.getItem('theme') || 'light';
+        this.currentTheme = localStorage.getItem('theme') || 'dark'; // Dark is default
         
         this.init();
     }
@@ -20,9 +22,11 @@ class ThemeManager {
         this.setTheme(this.currentTheme);
         
         // Add event listeners
-        this.themeToggle.addEventListener('click', () => {
-            this.toggleTheme();
-        });
+        if (this.themeToggle) {
+            this.themeToggle.addEventListener('click', () => {
+                this.toggleTheme();
+            });
+        }
         
         // Listen for system theme changes
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
@@ -34,17 +38,20 @@ class ThemeManager {
     
     setTheme(theme) {
         this.currentTheme = theme;
-        this.html.classList.toggle('dark', theme === 'dark');
+        const isDark = theme === 'dark';
+        this.html.classList.toggle('dark', isDark);
+        this.html.classList.toggle('light-theme', !isDark);
         localStorage.setItem('theme', theme);
         this.updateButtonIcon();
     }
     
     toggleTheme() {
-        const newTheme = this.currentTheme === 'light' ? 'dark' : 'light';
+        const newTheme = this.currentTheme === 'dark' ? 'light' : 'dark';
         this.setTheme(newTheme);
     }
     
     updateButtonIcon() {
+        if (!this.themeToggle) return;
         const moonIcon = this.themeToggle.querySelector('i.bx-moon');
         const sunIcon = this.themeToggle.querySelector('i.bx-sun');
         
@@ -58,47 +65,78 @@ class ThemeManager {
     }
 }
 
-// Color Palette Manager
+// Color Palette Manager using data-palette attributes
 class PaletteManager {
     constructor() {
         this.paletteToggle = document.getElementById('palette-toggle');
-        this.palettes = [
-            { name: 'English Violet', primary: '#4A3267', secondary: '#DE638A', tertiary: '#F7B9C4' },
-            { name: 'Ocean Blue', primary: '#1e40af', secondary: '#3b82f6', tertiary: '#60a5fa' },
-            { name: 'Forest Green', primary: '#15803d', secondary: '#22c55e', tertiary: '#4ade80' },
-            { name: 'Sunset Orange', primary: '#ea580c', secondary: '#f97316', tertiary: '#fb923c' },
-            { name: 'Royal Purple', primary: '#7c3aed', secondary: '#a855f7', tertiary: '#c084fc' }
-        ];
+        this.palettesCount = 4; // 0: Grid Power, 1: Classic Blueprint, 2: High-Voltage Amber, 3: Automation Terminal
         this.currentPalette = localStorage.getItem('palette') || 0;
+        this.initialized = false;
         
         this.init();
     }
     
     init() {
-        this.paletteToggle.addEventListener('click', () => {
-            this.togglePalette();
-        });
+        if (this.paletteToggle) {
+            this.paletteToggle.addEventListener('click', () => {
+                this.togglePalette();
+            });
+        }
         
         this.applyPalette(this.currentPalette);
     }
     
     applyPalette(index) {
-        const palette = this.palettes[index];
-        if (!palette) return;
-        
-        // Update CSS variables
         const root = document.documentElement;
-        root.style.setProperty('--accent-primary', palette.primary);
-        root.style.setProperty('--accent-secondary', palette.secondary);
-        root.style.setProperty('--accent-tertiary', palette.tertiary);
-        
+        root.setAttribute('data-palette', index);
         localStorage.setItem('palette', index);
+        
+        // Notify user about palette change
+        const paletteNames = ['Grid Power', 'Classic Blueprint', 'High-Voltage Amber', 'Automation Terminal'];
+        if (this.initialized) {
+            showNotification(`Palette switched to: ${paletteNames[index]}`, 'success');
+        }
+        this.initialized = true;
     }
     
     togglePalette() {
-        this.currentPalette = (parseInt(this.currentPalette) + 1) % this.palettes.length;
+        this.currentPalette = (parseInt(this.currentPalette) + 1) % this.palettesCount;
         this.applyPalette(this.currentPalette);
     }
+}
+
+// Notification system (loaded first for palette initialization logs)
+function showNotification(message, type) {
+    const notification = document.createElement('div');
+    notification.className = `fixed top-24 right-4 z-[100000] p-4 rounded shadow-lg transform translate-x-full transition-transform duration-300 font-mono-labels text-xs border ${
+        type === 'success' 
+            ? 'bg-surface-container text-primary-container border-primary-container' 
+            : 'bg-surface-container text-secondary border-secondary'
+    }`;
+    
+    const icon = type === 'success' ? 'terminal' : 'warning';
+    
+    notification.innerHTML = `
+        <div class="flex items-center space-x-3">
+            <span class="material-symbols-outlined text-sm">${icon}</span>
+            <span>${message}</span>
+        </div>
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Animate in
+    setTimeout(() => {
+        notification.classList.remove('translate-x-full');
+    }, 100);
+    
+    // Animate out and remove
+    setTimeout(() => {
+        notification.classList.add('translate-x-full');
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 300);
+    }, 3500);
 }
 
 // Initialize managers
@@ -109,17 +147,19 @@ const paletteManager = new PaletteManager();
 const mobileMenuButton = document.getElementById('mobile-menu-button');
 const mobileMenu = document.getElementById('mobile-menu');
 
-mobileMenuButton.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-});
-
-// Close mobile menu when clicking on links
-const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-mobileMenuLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
+if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
     });
-});
+    
+    // Close mobile menu when clicking on links
+    const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+    mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+    });
+}
 
 // Smooth scrolling for navigation links
 const navLinks = document.querySelectorAll('a[href^="#"]');
@@ -143,17 +183,20 @@ navLinks.forEach(link => {
 });
 
 // Active navigation highlight
-const sections = document.querySelectorAll('section[id]');
+const sections = document.querySelectorAll('section[id], #skills');
 const navLinksAll = document.querySelectorAll('.nav-link');
+const navContactTerminal = document.getElementById('nav-contact-terminal');
 
 function highlightActiveSection() {
     let current = '';
+    const scrollPos = window.pageYOffset || document.documentElement.scrollTop;
     
     sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
-        const sectionHeight = section.clientHeight;
+        const rect = section.getBoundingClientRect();
+        const sectionTop = rect.top + scrollPos - 120;
+        const sectionHeight = rect.height;
         
-        if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
+        if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
             current = section.getAttribute('id');
         }
     });
@@ -164,100 +207,86 @@ function highlightActiveSection() {
             link.classList.add('active');
         }
     });
+    
+    // Highlight top-right terminal button when in contact section
+    if (navContactTerminal) {
+        if (current === 'contact') {
+            navContactTerminal.classList.add('terminal-active');
+        } else {
+            navContactTerminal.classList.remove('terminal-active');
+        }
+    }
 }
 
 window.addEventListener('scroll', highlightActiveSection);
 
+
 // Form submission
 const contactForm = document.getElementById('contact-form');
 
-contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    const formData = new FormData(contactForm);
-    const submitButton = contactForm.querySelector('button[type="submit"]');
-    const originalText = submitButton.innerHTML;
-    
-    // Show loading state
-    submitButton.innerHTML = '<i class="bx bx-loader-alt animate-spin"></i> Sending...';
-    submitButton.disabled = true;
-    
-    try {
-        const response = await fetch('https://formspree.io/f/meqyrrly', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(Object.fromEntries(formData))
-        });
+if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
         
-        if (response.ok) {
-            showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
-            contactForm.reset();
-        } else {
-            showNotification('Oops! Something went wrong. Please try again later.', 'error');
+        const formData = new FormData(contactForm);
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitButton.innerHTML;
+        
+        // Show loading state
+        submitButton.innerHTML = `
+            <span class="material-symbols-outlined text-sm animate-spin mr-2">sync</span>
+            <span>TRANSMITTING...</span>
+        `;
+        submitButton.disabled = true;
+        
+        try {
+            const response = await fetch('https://formspree.io/f/meqyrrly', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(Object.fromEntries(formData))
+            });
+            
+            if (response.ok) {
+                showNotification('TRANSMISSION SUCCESSFUL. MESSAGE RECEIVED.', 'success');
+                contactForm.reset();
+            } else {
+                showNotification('TRANSMISSION FAILED. SUBMIT RETRY ATTEMPT.', 'error');
+            }
+        } catch (error) {
+            showNotification('TRANSMISSION FAILED. NETWORK ERROR DETECTED.', 'error');
+        } finally {
+            // Reset button
+            submitButton.innerHTML = originalText;
+            submitButton.disabled = false;
         }
-    } catch (error) {
-        showNotification('Oops! Something went wrong. Please try again later.', 'error');
-    } finally {
-        // Reset button
-        submitButton.innerHTML = originalText;
-        submitButton.disabled = false;
-    }
-});
-
-// Notification system
-function showNotification(message, type) {
-    const notification = document.createElement('div');
-    notification.className = `fixed top-4 right-4 z-50 p-4 rounded-xl shadow-lg transform translate-x-full transition-transform duration-300 ${
-        type === 'success' 
-            ? 'bg-green-500 text-white' 
-            : 'bg-red-500 text-white'
-    }`;
-    notification.innerHTML = `
-        <div class="flex items-center space-x-2">
-            <i class='bx ${type === 'success' ? 'bx-check-circle' : 'bx-error-circle'}'></i>
-            <span>${message}</span>
-        </div>
-    `;
-    
-    document.body.appendChild(notification);
-    
-    // Animate in
-    setTimeout(() => {
-        notification.classList.remove('translate-x-full');
-    }, 100);
-    
-    // Animate out and remove
-    setTimeout(() => {
-        notification.classList.add('translate-x-full');
-        setTimeout(() => {
-            document.body.removeChild(notification);
-        }, 300);
-    }, 4000);
+    });
 }
 
 // Animate skill bars on scroll
 function animateSkillBars() {
-    const skillBars = document.querySelectorAll('.skill-item');
+    const skillItems = document.querySelectorAll('.skill-item');
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const progressBar = entry.target.querySelector('.h-3.rounded-full');
-                const width = progressBar.style.width;
-                progressBar.style.width = '0%';
-                
-                setTimeout(() => {
-                    progressBar.style.width = width;
-                }, 200);
-                
+                const progressBar = entry.target.querySelector('.progress-bar-fill');
+                if (progressBar) {
+                    const width = progressBar.getAttribute('data-width') || '0%';
+                    progressBar.style.width = '0%';
+                    
+                    setTimeout(() => {
+                        progressBar.style.width = width;
+                    }, 200);
+                }
                 observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.2 });
     
-    skillBars.forEach(bar => {
+    skillItems.forEach(bar => {
         observer.observe(bar);
     });
 }
@@ -265,25 +294,27 @@ function animateSkillBars() {
 // Initialize skill bar animations
 animateSkillBars();
 
-// Add loading animation
+// Add loading animation class to body
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
 });
 
-// Persistent Navigation Management
+// Persistent Navigation Guard & Floating Controls
 class NavigationManager {
     constructor() {
         this.navbar = document.querySelector('nav');
-        this.mobileMenu = document.getElementById('mobile-menu');
-        this.mobileMenuButton = document.getElementById('mobile-menu-button');
         this.init();
     }
     
     init() {
-        // Always ensure navigation is visible and clickable
         this.ensureNavigationAccess();
+        this.createBackToTopButton();
         
-        // Add keyboard shortcuts for navigation
+        window.addEventListener('scroll', () => {
+            this.ensureNavigationAccess();
+        });
+        
+        // Keyboard navigation shortcuts
         document.addEventListener('keydown', (e) => {
             if (e.ctrlKey) {
                 switch(e.key) {
@@ -310,73 +341,20 @@ class NavigationManager {
                 }
             }
         });
-        
-        // Add intersection observer to ensure navigation is always accessible
-        this.addNavigationGuard();
     }
     
     ensureNavigationAccess() {
-        // Force navigation to always be on top and visible with sticky positioning
         if (this.navbar) {
-            // Ensure sticky positioning is maintained
-            this.navbar.style.position = 'sticky !important';
-            this.navbar.style.top = '0 !important';
-            this.navbar.style.zIndex = '99999 !important';
-            this.navbar.style.pointerEvents = 'auto !important';
-            this.navbar.style.opacity = '1 !important';
-            this.navbar.style.display = 'block !important';
-            this.navbar.style.visibility = 'visible !important';
+            this.navbar.style.position = 'sticky';
+            this.navbar.style.top = '0';
+            this.navbar.style.zIndex = '99999';
         }
-        
-        // Always ensure nav links are clickable
-        const navLinks = this.navbar?.querySelectorAll('a[href^="#"]');
-        navLinks?.forEach(link => {
-            link.style.pointerEvents = 'auto !important';
-            link.style.opacity = '1 !important';
-            link.style.display = 'block !important';
-            link.style.visibility = 'visible !important';
-        });
-        
-        // Always ensure control buttons are clickable
-        const controlButtons = this.navbar?.querySelectorAll('button');
-        controlButtons?.forEach(button => {
-            button.style.pointerEvents = 'auto !important';
-            button.style.opacity = '1 !important';
-            button.style.display = 'block !important';
-            button.style.visibility = 'visible !important';
-        });
-    }
-    
-    addNavigationGuard() {
-        // Add a "Back to Top" floating button
-        this.createBackToTopButton();
-        
-        // Monitor page scroll to ensure navigation is always accessible
-        window.addEventListener('scroll', () => {
-            this.ensureNavigationAccess();
-        });
     }
     
     createBackToTopButton() {
         const backToTopBtn = document.createElement('button');
         backToTopBtn.id = 'back-to-top';
-        backToTopBtn.innerHTML = '<i class="bx bx-up-arrow-alt"></i>';
-        backToTopBtn.className = 'fixed bottom-6 right-6 z-[99998] p-3 rounded-full text-white transition-all duration-300 transform hover:scale-110';
-        backToTopBtn.style.cssText = `
-            background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
-            color: white;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            opacity: 0;
-            pointer-events: none;
-            position: fixed !important;
-            z-index: 99998 !important;
-        `;
+        backToTopBtn.innerHTML = '<span class="material-symbols-outlined">arrow_upward</span>';
         
         backToTopBtn.addEventListener('click', () => {
             window.scrollTo({
@@ -416,3 +394,69 @@ class NavigationManager {
 
 // Initialize Navigation Manager
 const navigationManager = new NavigationManager();
+
+// Dynamic Experience Counters
+function initExperienceCounters() {
+    const totalExpEl = document.getElementById('dynamic-exp-counter');
+    const neaTenureEl = document.getElementById('nea-tenure-ticker');
+    
+    const totalStartDate = new Date('2021-04-15T00:00:00');
+    const neaStartDate = new Date('2026-02-17T00:00:00');
+    
+    function calcDiff(startDate, now) {
+        let y = now.getFullYear() - startDate.getFullYear();
+        let m = now.getMonth()   - startDate.getMonth();
+        let d = now.getDate()    - startDate.getDate();
+        if (d < 0) {
+            const prev = new Date(now.getFullYear(), now.getMonth(), 0);
+            d += prev.getDate();
+            m--;
+        }
+        if (m < 0) { m += 12; y--; }
+        return { y, m, d };
+    }
+    
+    function updateCounters() {
+        const now = new Date();
+        
+        // 1. Total Experience → "X Years, Y Months, Z Days"
+        if (totalExpEl) {
+            const { y, m, d } = calcDiff(totalStartDate, now);
+            totalExpEl.textContent = `${y} Years, ${m} Months, ${d} Days`;
+        }
+        
+        // 2. NEA Tenure → "Y Months, Z Days" (omit years if < 1)
+        if (neaTenureEl) {
+            const { y, m, d } = calcDiff(neaStartDate, now);
+            neaTenureEl.textContent = y >= 1
+                ? `${y}y ${m}m ${d}d`
+                : `${m} Months, ${d} Days`;
+        }
+    }
+    
+    setInterval(updateCounters, 60000);
+    updateCounters();
+}
+
+// Footer Uptime Counter
+function initFooterUptime() {
+    const footerEl = document.getElementById('footer-uptime-ticker');
+    if (!footerEl) return;
+    
+    const careerStart = new Date('2021-04-15T00:00:00');
+    
+    function updateUptime() {
+        const now   = new Date();
+        const years = (now - careerStart) / (1000 * 60 * 60 * 24 * 365.25);
+        footerEl.textContent = years >= 6.0
+            ? `UPTIME: ${Math.floor(years)} YEARS`
+            : `UPTIME: ${years.toFixed(1)} YEARS`;
+    }
+    
+    setInterval(updateUptime, 60000);
+    updateUptime();
+}
+
+// Initialize dynamic experience tickers
+initExperienceCounters();
+initFooterUptime();
