@@ -346,6 +346,40 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateY(-3px);
 }
 
+/* Premium Themed Project Images to Make Diverse Content Harmonious */
+.project-image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: var(--surface-container-lowest);
+    overflow: hidden;
+}
+
+.project-image-themed {
+    filter: grayscale(100%) contrast(1.1) brightness(0.85);
+    mix-blend-mode: luminosity;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-image-container::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(11, 19, 38, 0.75));
+    mix-blend-mode: color;
+    pointer-events: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glow-card:hover .project-image-themed {
+    filter: grayscale(20%) contrast(1.15) brightness(0.95);
+    mix-blend-mode: normal;
+}
+
+.glow-card:hover .project-image-container::after {
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.05), rgba(11, 19, 38, 0.35));
+}
+
 /* Glassmorphism Styles */
 .glass {
     background-color: rgba(var(--shadow-color), 0.03);
