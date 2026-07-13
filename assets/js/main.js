@@ -42,26 +42,11 @@ class ThemeManager {
         this.html.classList.toggle('dark', isDark);
         this.html.classList.toggle('light-theme', !isDark);
         localStorage.setItem('theme', theme);
-        this.updateButtonIcon();
     }
     
     toggleTheme() {
         const newTheme = this.currentTheme === 'dark' ? 'light' : 'dark';
         this.setTheme(newTheme);
-    }
-    
-    updateButtonIcon() {
-        if (!this.themeToggle) return;
-        const moonIcon = this.themeToggle.querySelector('i.bx-moon');
-        const sunIcon = this.themeToggle.querySelector('i.bx-sun');
-        
-        if (this.currentTheme === 'dark') {
-            moonIcon?.classList.add('hidden');
-            sunIcon?.classList.remove('hidden');
-        } else {
-            moonIcon?.classList.remove('hidden');
-            sunIcon?.classList.add('hidden');
-        }
     }
 }
 
@@ -225,22 +210,29 @@ window.addEventListener('scroll', highlightActiveSection);
 const contactForm = document.getElementById('contact-form');
 
 if (contactForm) {
+    const endpoint = contactForm.dataset.formspreeEndpoint;
+
     contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
+
+        if (!endpoint) {
+            showNotification('TRANSMISSION FAILED. ENDPOINT NOT CONFIGURED.', 'error');
+            return;
+        }
+
         const formData = new FormData(contactForm);
         const submitButton = contactForm.querySelector('button[type="submit"]');
         const originalText = submitButton.innerHTML;
-        
+
         // Show loading state
         submitButton.innerHTML = `
             <span class="material-symbols-outlined text-sm animate-spin mr-2">sync</span>
             <span>TRANSMITTING...</span>
         `;
         submitButton.disabled = true;
-        
+
         try {
-            const response = await fetch('https://formspree.io/f/meqyrrly', {
+            const response = await fetch(endpoint, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

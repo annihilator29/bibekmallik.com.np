@@ -40,40 +40,9 @@
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
-    <!-- Tailwind CSS with custom theme extensions mapped to CSS variables -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "surface-dim": "var(--surface-dim)",
-                        "surface-container": "var(--surface-container)",
-                        "surface-container-low": "var(--surface-container-low)",
-                        "surface-container-lowest": "var(--surface-container-lowest)",
-                        "surface-container-high": "var(--surface-container-high)",
-                        "surface-container-highest": "var(--surface-container-highest)",
-                        "surface-bright": "var(--surface-bright)",
-                        "primary": "var(--primary)",
-                        "primary-container": "var(--primary-container)",
-                        "secondary": "var(--secondary)",
-                        "border-utility": "var(--border-utility)",
-                        "text-primary": "var(--text-primary)",
-                        "text-muted": "var(--text-muted)",
-                        "on-surface": "var(--on-surface)",
-                        "on-primary": "var(--on-primary)",
-                    },
-                    fontFamily: {
-                        sans: ["IBM Plex Sans", "sans-serif"],
-                        display: ["Space Grotesk", "sans-serif"],
-                        mono: ["IBM Plex Mono", "monospace"],
-                    }
-                }
-            }
-        }
-    </script>
-    
+    <!-- Tailwind CSS (compiled production build) -->
+    <link rel="stylesheet" href="assets/css/tailwind.css">
+
     <!-- Custom CSS variables and layout configurations -->
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
@@ -563,7 +532,7 @@
                 <!-- Project Card 1 -->
                 <div class="bg-surface-container border border-border-utility rounded overflow-hidden glow-card group relative" data-aos="fade-up">
                     <div class="relative h-48 overflow-hidden project-image-container">
-                        <img src="assets/img/power_dist.png" alt="Power Distribution Design" class="w-full h-full object-cover project-image-themed">
+                        <img src="assets/img/power_dist.png" alt="Power Distribution Design" loading="lazy" class="w-full h-full object-cover project-image-themed">
                         <!-- Top left flag -->
                         <div class="absolute top-3 left-3 bg-surface-container-high/90 border border-border-utility px-2.5 py-0.5 rounded font-mono-labels text-[9px] text-primary-container uppercase z-10">
                             active_cyme
@@ -584,7 +553,7 @@
                 <!-- Project Card 2 -->
                 <div class="bg-surface-container border border-border-utility rounded overflow-hidden glow-card group relative" data-aos="fade-up" data-aos-delay="50">
                     <div class="relative h-48 overflow-hidden project-image-container">
-                        <img src="assets/img/grid_mod.png" alt="Grid Modernization" class="w-full h-full object-cover project-image-themed">
+                        <img src="assets/img/grid_mod.png" alt="Grid Modernization" loading="lazy" class="w-full h-full object-cover project-image-themed">
                         <div class="absolute top-3 left-3 bg-surface-container-high/90 border border-border-utility px-2.5 py-0.5 rounded font-mono-labels text-[9px] text-primary-container uppercase z-10">
                             grid_mod
                         </div>
@@ -604,7 +573,7 @@
                 <!-- Project Card 3 -->
                 <div class="bg-surface-container border border-border-utility rounded overflow-hidden glow-card group relative" data-aos="fade-up" data-aos-delay="100">
                     <div class="relative h-48 overflow-hidden project-image-container">
-                        <img src="assets/img/DER%20Integration.jpg" alt="DER Integration" class="w-full h-full object-cover project-image-themed">
+                        <img src="assets/img/DER%20Integration.jpg" alt="DER Integration" loading="lazy" class="w-full h-full object-cover project-image-themed">
                         <div class="absolute top-3 left-3 bg-surface-container-high/90 border border-border-utility px-2.5 py-0.5 rounded font-mono-labels text-[9px] text-primary-container uppercase z-10">
                             der_planning
                         </div>
@@ -624,7 +593,7 @@
                 <!-- Project Card 4 -->
                 <div class="bg-surface-container border border-border-utility rounded overflow-hidden glow-card group relative" data-aos="fade-up" data-aos-delay="150">
                     <div class="relative h-48 overflow-hidden project-image-container">
-                        <img src="assets/img/Project%20Management.jpg" alt="Project Management" class="w-full h-full object-cover project-image-themed">
+                        <img src="assets/img/Project%20Management.jpg" alt="Project Management" loading="lazy" class="w-full h-full object-cover project-image-themed">
                         <div class="absolute top-3 left-3 bg-surface-container-high/90 border border-border-utility px-2.5 py-0.5 rounded font-mono-labels text-[9px] text-primary-container uppercase z-10">
                             ops_lead
                         </div>
@@ -644,7 +613,7 @@
                 <!-- Project Card 5 -->
                 <div class="bg-surface-container border border-border-utility rounded overflow-hidden glow-card group relative" data-aos="fade-up" data-aos-delay="200">
                     <div class="relative h-48 overflow-hidden project-image-container">
-                        <img src="assets/img/quality_assurance.png" alt="Quality Assurance" class="w-full h-full object-cover project-image-themed">
+                        <img src="assets/img/quality_assurance.png" alt="Quality Assurance" loading="lazy" class="w-full h-full object-cover project-image-themed">
                         <div class="absolute top-3 left-3 bg-surface-container-high/90 border border-border-utility px-2.5 py-0.5 rounded font-mono-labels text-[9px] text-primary-container uppercase z-10">
                             qa_qc_log
                         </div>
@@ -664,7 +633,7 @@
                 <!-- Project Card 6 -->
                 <div class="bg-surface-container border border-border-utility rounded overflow-hidden glow-card group relative" data-aos="fade-up" data-aos-delay="250">
                     <div class="relative h-48 overflow-hidden project-image-container">
-                        <img src="assets/img/Team%20Development.webp" alt="Team Development" class="w-full h-full object-cover project-image-themed">
+                        <img src="assets/img/Team%20Development.webp" alt="Team Development" loading="lazy" class="w-full h-full object-cover project-image-themed">
                         <div class="absolute top-3 left-3 bg-surface-container-high/90 border border-border-utility px-2.5 py-0.5 rounded font-mono-labels text-[9px] text-primary-container uppercase z-10">
                             mentoring
                         </div>
@@ -764,7 +733,7 @@
                 
                 <!-- Contact form container -->
                 <div class="lg:col-span-7 bg-surface-container border border-border-utility rounded p-8 glow-card relative" data-aos="fade-left">
-                    <form id="contact-form" class="space-y-6">
+                    <form id="contact-form" data-formspree-endpoint="https://formspree.io/f/meqyrrly" class="space-y-6">
                         
                         <div class="grid sm:grid-cols-2 gap-6">
                             <div>

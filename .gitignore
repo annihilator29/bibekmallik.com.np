@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+.tailwind/
+
+# OS & editor junk
+.DS_Store
+Thumbs.db
+*.swp
+
+# Archives / working drafts (not part of the live site)
+0 - Archive/
+
+# Tooling / test artifacts
+.playwright-mcp/
